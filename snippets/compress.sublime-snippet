@@ -1,0 +1,16 @@
+<snippet>
+	<content><![CDATA[
+void compress(ll n){
+	mp.clear();
+	set<ll> st;
+	ll ct = 1;
+	for(int i = 0; i < n; i++) st.insert(a[i]);
+	for(auto i : st) mp[i] = ct++;
+	for(int i = 0; i < n; i++) b[i] = mp[a[i]];
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	 <tabTrigger>compress</tabTrigger> 
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
