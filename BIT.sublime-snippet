@@ -1,0 +1,23 @@
+<snippet>
+	<content><![CDATA[
+ll upd(ll idx, ll val){
+	while(idx < mx){
+		bit[idx] += val;
+		idx += (idx & -idx);
+	}
+}
+
+ll get(ll idx){
+	ll sum = 0;
+	while(idx > 0){
+		sum += bit[idx];
+		idx -= (idx & -idx);
+	}
+	return sum;
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	 <tabTrigger>BIT</tabTrigger> 
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

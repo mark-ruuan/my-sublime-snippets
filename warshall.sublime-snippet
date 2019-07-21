@@ -1,0 +1,21 @@
+<snippet>
+	<content><![CDATA[
+void warshall(){
+	for(int i = 0; i < 100; i++)
+		for(int j = 0; j < 100; j++)
+			reach[i][j] = a[i][j];
+	
+	for(int k = 0; k < 100; k++){
+		for(int i = 0; i < 100; i++){
+			for(int j = 0; j < 100; j++)
+				if(reach[i][k] + reach[k][j] < reach[i][j])
+					reach[i][j] = reach[i][k] + reach[k][j];
+		}
+	}
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>warshall</tabTrigger> 
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
