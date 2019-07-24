@@ -1,0 +1,42 @@
+<snippet>
+	<content><![CDATA[
+vector<int> v[N], order;
+priority_queue<int, vector<int>, greater<int> > pq;
+int in[N], n;
+
+void kahn(){
+	int cnt = 0;
+	for(int i = 1; i <= n; ++i){
+		for(auto j: v[i]){
+			in[j]++;
+		}
+	}
+	for(int i = 1; i <= n; i++){
+		if(in[i] == 0) pq.push(i);
+	}
+
+	while(!pq.empty()){
+		int cur = pq.top();
+		pq.pop();
+		order.push_back(cur);
+		for(auto i: v[cur]){
+			if(--in[i] == 0)
+				pq.push(i);
+		}
+		cnt++;
+	}
+	if(cnt != n){
+		cout << "cycle present";
+	}
+	else{
+		for(int i = 0; i < order.size(); i++)
+			cout << order[i] << " ";
+	}
+
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>Kahn</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
