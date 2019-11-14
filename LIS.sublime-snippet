@@ -1,0 +1,25 @@
+<snippet>
+	<content><![CDATA[
+ll LIS(){
+	const int INF = 1e9;
+	 ll n = a.size();
+	vector<ll> dp(n + 1, INF);
+	dp[0] = -INF;
+	for(int i = 0; i < n; i++){
+		int j = upper_bound(dp.begin(), dp.end(), a[i]) - dp.begin();
+		if(dp[j - 1] < a[i] && a[i] < dp[j])
+			dp[j] = a[i]; 
+	}
+	ll res = 0;
+	for(int i = 0; i <= n; i++){
+		if(dp[i] < INF)
+			res = i;
+	}
+	return res;
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>LIS</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
